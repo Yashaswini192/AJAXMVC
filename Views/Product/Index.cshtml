@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<button class="btn btn-sm btn-primary m-2" id="btnAddProduct">Add Product</button> 
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th class="text-center">ID</th>
+            <th class="text-center">Name</th>
+            <th class="text-center">Price</th>
+            <th class="text-center">Quantity</th>
+            <th class="text-center">Category</th>
+            <th class="text-center">Action</th>
+
+        </tr>
+    </thead>
+    <tbody id="table_data"> 
+
+    </tbody>
+</table>
+<div class="modal fade modal" id="ProductModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="text-info modal-title">Add Employee</h3>
+                <button class="close text-danger" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form method="post"  class="form-group">
+                    <label>ID</label>
+                    <input type="text"  class="form-control" id="productID" disabled="disabled" /><br />
+
+                    <label>Name</label>
+                    <input type="text" placeholder="Enter name" class="form-control" id="productName" autocomplete="off"/><br />
+
+                    <label>Price</label>
+                    <input type="text" placeholder="Enter price" class="form-control" id="price" autocomplete=" off" /><br />
+
+                    <label>Quantity</label>
+                    <input type="text" placeholder="Enter quantity" class="form-control" id="quantity" autocomplete="off" /><br />
+
+                    <label>Category</label>
+                    <input type="text" placeholder="Enter category" class="form-control" id="category" autocomplete="off" /><br />
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="AddProduct" onclick="AddProduct();">Save</button>
+                <button class="btn btn-warning" id="btnupdate" onclick="UpdateProduct();" style="display:none">Update</button>
+
+                <button class="btn btn-danger btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <input type="hidden" id="productData" value="@Url.Action("Productlist", "Product")"/>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/js/custom.js"></script>
